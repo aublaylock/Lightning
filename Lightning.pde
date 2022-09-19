@@ -8,6 +8,7 @@ void draw(){
   strokeWeight(3);
   fill(50,50,50);
   triangle(300,1000,700,1000,500,500);
+  splitter(500,600);
   fill(150,150,150);
   ellipse(500,500,400,400);
   fill(0,0,0);
@@ -40,4 +41,23 @@ void electricity(int x, int y){
   }
   fill(0,0,100,50);
   ellipse(curX, curY, 30, 30);
+}
+
+void splitter(int x, int y){
+  //System.out.println(x);
+  if(y>1000){
+    return;
+  }
+  int newX = x + (int)(Math.random()*21)-10;
+  int newY = y + 5;
+  if((int)(Math.random()*50)==5){
+    line(x,y,newX,newY);
+    splitter(newX,newY);
+    line(x,y,newX,newY);
+    splitter(newX,newY);
+  }
+  else{
+    line(x,y,newX,newY);
+    splitter(newX, newY);
+  }
 }
